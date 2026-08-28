@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://Textures/images/enemies/1_enemy/1_enemy.png" id="1_enemy"]
+[ext_resource type="Script" path="res://Enemies/1_enemy/1_enemy.gd" id="2_script"]
+
+[sub_resource type="CircleShape2D" id="circle_20"]
+radius = 20.0
+
+[sub_resource type="StyleBoxFlat" id="hp_bg"]
+bg_color = Color(0.15, 0.15, 0.15, 0.85)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+
+[sub_resource type="StyleBoxFlat" id="hp_fill"]
+bg_color = Color(0.3, 0.8, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+
+[node name="1_Enemy" type="CharacterBody2D"]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_enemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("circle_20")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -22.0
+offset_top = -32.0
+offset_right = 22.0
+offset_bottom = -24.0
+max_value = 100.0
+value = 100.0
+show_percentage = false
+theme_override_styles/background = SubResource("hp_bg")
+theme_override_styles/fill = SubResource("hp_fill")
+
+[node name="HealthNumber" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -46.0
+offset_right = 30.0
+offset_bottom = -34.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
