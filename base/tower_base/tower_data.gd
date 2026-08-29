@@ -7,6 +7,12 @@ extends Resource
 ## 不同塔共用同一份类，各自填各自的数值；塔有专属字段时再建子类资源
 ##（如 BlazingTowerData extends TowerData 加火元素增伤字段）
 
+@export_group("Identity")
+@export var tower_id: StringName = &"tower"
+@export var display_name: String = "Tower"
+@export var icon: Texture2D
+@export_range(0, 100000, 1) var build_cost: int = 10
+
 ## —— 基础属性 ——
 @export var attack_range := 300.0          # 攻击半径（策划：半径 300）
 @export var attack_interval := 0.2         # 攻击间隔（秒）
