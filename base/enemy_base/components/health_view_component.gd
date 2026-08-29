@@ -1,8 +1,8 @@
 class_name HealthViewComponent
 extends Node
 
-@export var health_bar: ProgressBar
-@export var health_label: Label
+@onready var health_bar: ProgressBar = %HealthBar
+@onready var health_label: Label = %HealthNumber
 
 func bind(health: HealthComponent) -> void:
     health.health_changed.connect(_on_health_changed)

@@ -37,6 +37,7 @@ script = ExtResource("1_base")
 shape = SubResource("circle_20")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 offset_left = -22.0
 offset_top = -32.0
 offset_right = 22.0
@@ -48,6 +49,7 @@ theme_override_styles/background = SubResource("hp_bg")
 theme_override_styles/fill = SubResource("hp_fill")
 
 [node name="HealthNumber" type="Label" parent="."]
+unique_name_in_owner = true
 offset_left = -30.0
 offset_top = -46.0
 offset_right = 30.0
