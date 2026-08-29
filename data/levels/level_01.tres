@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://base/level_base/resources/level_data.gd" id="1_level"]
+[ext_resource type="Script" path="res://base/level_base/resources/grid_config.gd" id="2_grid"]
+[ext_resource type="Script" path="res://base/level_base/resources/wave_data.gd" id="3_wave"]
+[ext_resource type="Resource" path="res://data/waves/level_01_wave_01.tres" id="4_wave_res"]
+
+[sub_resource type="Resource" id="grid"]
+script = ExtResource("2_grid")
+columns = 19
+rows = 11
+spacing = 64.0
+origin = Vector2(640, 360)
+blocked_cells = Array[Vector2i]([Vector2i(9, 5)])
+
+[resource]
+script = ExtResource("1_level")
+level_id = &"level_01"
+display_name = "第 1 关"
+crystal_max_health = 100
+starting_energy = 100
+grid_config = SubResource("grid")
+allowed_tower_ids = Array[StringName]([&"plasma_cell", &"light_tower"])
+waves = Array[ExtResource("3_wave")]([ExtResource("4_wave_res")])

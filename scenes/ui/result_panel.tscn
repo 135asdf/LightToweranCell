@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/result_panel.gd" id="1_panel"]
+
+[node name="ResultPanel" type="Control"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+script = ExtResource("1_panel")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+text = "胜利"
+
+[node name="RestartButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+text = "重新开始"
+
+[node name="LevelSelectButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+text = "返回选关"
+
+[node name="HomeButton" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+text = "返回首页"

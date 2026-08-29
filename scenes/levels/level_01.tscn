@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://base/level_base/level_base.tscn" id="1_base"]
+[ext_resource type="Resource" path="res://data/levels/level_01.tres" id="2_data"]
+[ext_resource type="Resource" path="res://data/catalogs/tower_catalog.tres" id="3_catalog"]
+[ext_resource type="Texture2D" path="res://Textures/map/map/map.png" id="4_map"]
+[ext_resource type="Texture2D" path="res://Textures/map/crystal/crystal.png" id="5_crystal"]
+
+[node name="Level01" instance=ExtResource("1_base")]
+level_data = ExtResource("2_data")
+tower_catalog = ExtResource("3_catalog")
+
+[node name="World/Background" parent="."]
+texture = ExtResource("4_map")
+
+[node name="World/Crystal/Sprite2D" parent="."]
+texture = ExtResource("5_crystal")
+
+[node name="World/SpawnPoints/north" type="Marker2D" parent="."]
+position = Vector2(640, 40)
+
+[node name="World/SpawnPoints/south" type="Marker2D" parent="."]
+position = Vector2(640, 680)
+
+[node name="World/SpawnPoints/east" type="Marker2D" parent="."]
+position = Vector2(1240, 360)
+
+[node name="World/SpawnPoints/west" type="Marker2D" parent="."]
+position = Vector2(40, 360)

@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://base/level_base/level_controller.gd" id="1_controller"]
+[ext_resource type="Script" path="res://base/level_base/components/build_grid_component.gd" id="2_grid"]
+[ext_resource type="PackedScene" path="res://base/level_base/crystal_base.tscn" id="3_crystal"]
+[ext_resource type="Script" path="res://base/level_base/components/economy_component.gd" id="4_economy"]
+[ext_resource type="Script" path="res://base/level_base/components/wave_spawner_component.gd" id="5_spawner"]
+[ext_resource type="Script" path="res://base/level_base/components/tower_placement_component.gd" id="6_placement"]
+[ext_resource type="Script" path="res://base/level_base/components/level_goal_component.gd" id="7_goal"]
+[ext_resource type="Script" path="res://base/level_base/level_hud.gd" id="8_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/result_panel.tscn" id="9_result"]
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_controller")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="World"]
+scale = Vector2(0.85, 0.85)
+
+[node name="BuildGrid" type="Node2D" parent="World"]
+unique_name_in_owner = true
+script = ExtResource("2_grid")
+
+[node name="Crystal" parent="World" instance=ExtResource("3_crystal")]
+unique_name_in_owner = true
+
+[node name="Towers" type="Node2D" parent="World"]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node2D" parent="World"]
+unique_name_in_owner = true
+
+[node name="SpawnPoints" type="Node2D" parent="World"]
+unique_name_in_owner = true
+
+[node name="Systems" type="Node" parent="."]
+
+[node name="Economy" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("4_economy")
+
+[node name="WaveSpawner" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("5_spawner")
+
+[node name="TowerPlacement" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("6_placement")
+
+[node name="LevelGoal" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("7_goal")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_hud")
+
+[node name="CrystalHealthBar" type="ProgressBar" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 608.0
+offset_top = 312.0
+offset_right = 672.0
+offset_bottom = 320.0
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="CrystalHealthLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 580.0
+offset_top = 288.0
+offset_right = 700.0
+offset_bottom = 304.0
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="EnergyLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 200.0
+offset_bottom = 28.0
+text = "100"
+
+[node name="PlasmaButton" type="Button" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 60.0
+offset_right = 165.0
+offset_bottom = 100.0
+text = "等离子塔"
+
+[node name="LightButton" type="Button" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 165.0
+offset_bottom = 150.0
+text = "光能塔"
+
+[node name="ResultPanel" parent="HUD" instance=ExtResource("9_result")]
+unique_name_in_owner = true
