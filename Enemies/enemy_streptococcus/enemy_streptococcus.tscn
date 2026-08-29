@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene format=3 uid="uid://bbi3fmyohusyl"]
 
-[ext_resource type="Texture2D" path="res://Textures/images/enemies/1_enemy/1_enemy.png" id="1_enemy"]
-[ext_resource type="Script" path="res://Enemies/1_enemy/1_enemy.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://ctlgh7jtu2mx" path="res://Enemies/enemy.gd" id="1_g5j5m"]
+[ext_resource type="Resource" uid="uid://cfav22xxpbhum" path="res://Enemies/enemy_streptococcus/enemy_streptococcus.tres" id="2_g5j5m"]
+[ext_resource type="Texture2D" uid="uid://0t0rbipe4m8d" path="res://Textures/images/enemies/1_enemy/1_enemy.png" id="3_6cufc"]
 
 [sub_resource type="CircleShape2D" id="circle_20"]
 radius = 20.0
@@ -10,38 +11,38 @@ radius = 20.0
 bg_color = Color(0.15, 0.15, 0.15, 0.85)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_left = 3
 corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="hp_fill"]
 bg_color = Color(0.3, 0.8, 0.3, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_left = 3
 corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
-[node name="1_Enemy" type="CharacterBody2D"]
-script = ExtResource("2_script")
+[node name="1_Enemy" type="CharacterBody2D" unique_id=2065629063]
+script = ExtResource("1_g5j5m")
+stats = ExtResource("2_g5j5m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=678545501]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_enemy")
+texture = ExtResource("3_6cufc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446659119]
 shape = SubResource("circle_20")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1965740433]
 offset_left = -22.0
 offset_top = -32.0
 offset_right = 22.0
 offset_bottom = -24.0
-max_value = 100.0
-value = 100.0
-show_percentage = false
 theme_override_styles/background = SubResource("hp_bg")
 theme_override_styles/fill = SubResource("hp_fill")
+value = 100.0
+show_percentage = false
 
-[node name="HealthNumber" type="Label" parent="."]
+[node name="HealthNumber" type="Label" parent="." unique_id=1342586893]
 offset_left = -30.0
 offset_top = -46.0
 offset_right = 30.0

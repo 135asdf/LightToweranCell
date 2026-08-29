@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://do3fld0htpu6p"]
+
+[ext_resource type="Resource" uid="uid://d1tgaag7ia0ec" path="res://Enemies/enemy_flagellate/enemy_flagellate.tres" id="1_n5eos"]
+[ext_resource type="Texture2D" uid="uid://de7q5j47yjkyj" path="res://Textures/images/towers/tower_plasma_cell/tower_plasma_cell.png" id="2_kkdf6"]
+
+[node name="2_Enemy" unique_id=2065629063]
+stats = ExtResource("1_n5eos")
+
+[node name="Sprite2D" parent="." index="0" unique_id=678545501]
+texture = ExtResource("2_kkdf6")

@@ -29,6 +29,19 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="塔防"
 
+[file_customization]
+
+folder_colors={
+"res://Enemies/": "red",
+"res://Lab/": "orange",
+"res://LevelSelection/": "yellow",
+"res://Main/": "green",
+"res://Managers/": "teal",
+"res://Map/": "blue",
+"res://Textures/": "purple",
+"res://Towers/": "pink"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
