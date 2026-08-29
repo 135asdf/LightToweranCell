@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://dihoxc2eywwh5"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" uid="uid://dbhbd5onp85iq" path="res://base/enemy_base/monster_base.gd" id="1_wb1pv"]
+[ext_resource type="Script" path="res://base/enemy_base/monster_base.gd" id="1_base"]
+[ext_resource type="Script" path="res://base/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" path="res://base/enemy_base/components/target_component.gd" id="3_target"]
+[ext_resource type="Script" path="res://base/enemy_base/components/movement_component.gd" id="4_movement"]
+[ext_resource type="Script" path="res://base/enemy_base/components/contact_damage_component.gd" id="5_contact"]
+[ext_resource type="Script" path="res://base/components/status_effect_component.gd" id="6_status"]
+[ext_resource type="Script" path="res://base/enemy_base/components/reward_component.gd" id="7_reward"]
+[ext_resource type="Script" path="res://base/enemy_base/components/health_view_component.gd" id="8_view"]
 
 [sub_resource type="CircleShape2D" id="circle_20"]
 radius = 20.0
@@ -9,35 +16,38 @@ radius = 20.0
 bg_color = Color(0.15, 0.15, 0.15, 0.85)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
 
 [sub_resource type="StyleBoxFlat" id="hp_fill"]
 bg_color = Color(0.3, 0.8, 0.3, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=144477955]
-script = ExtResource("1_wb1pv")
+[node name="EnemyBase" type="CharacterBody2D"]
+script = ExtResource("1_base")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1378613579]
+[node name="Visual" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2062654268]
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("circle_20")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1153968544]
+[node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -22.0
 offset_top = -32.0
 offset_right = 22.0
 offset_bottom = -24.0
-theme_override_styles/background = SubResource("hp_bg")
-theme_override_styles/fill = SubResource("hp_fill")
+max_value = 100.0
 value = 100.0
 show_percentage = false
+theme_override_styles/background = SubResource("hp_bg")
+theme_override_styles/fill = SubResource("hp_fill")
 
-[node name="HealthNumber" type="Label" parent="." unique_id=312253853]
+[node name="HealthNumber" type="Label" parent="."]
 offset_left = -30.0
 offset_top = -46.0
 offset_right = 30.0
@@ -49,3 +59,33 @@ theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_health")
+
+[node name="TargetComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_target")
+
+[node name="MovementComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_movement")
+
+[node name="ContactDamageComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_contact")
+
+[node name="StatusEffectComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_status")
+
+[node name="RewardComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_reward")
+
+[node name="HealthViewComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_view")
+health_bar = NodePath("../HealthBar")
+health_label = NodePath("../HealthNumber")

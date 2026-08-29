@@ -1,67 +1,74 @@
 class_name MonsterBase
 extends CharacterBody2D
 
+signal died(enemy: MonsterBase)
+signal reached_target(enemy: MonsterBase)
+signal reward_requested(score: int, energy: int)
+
 @export var monster_data: MonsterData
+@onready var health_component: HealthComponent = %HealthComponent
+@onready var target_component: TargetComponent = %TargetComponent
+@onready var movement_component: MovementComponent = %MovementComponent
+@onready var contact_damage_component: ContactDamageComponent = %ContactDamageComponent
+@onready var status_effect_component: StatusEffectComponent = %StatusEffectComponent
+@onready var reward_component: RewardComponent = %RewardComponent
+@onready var health_view_component: HealthViewComponent = %HealthViewComponent
 
-var move_target: Node2D = null
-var damage: int = 0   # 撞水晶伤害：1_level.gd 用 body.get("damage") 读，必须提供
+var _finished := false
 
-var health_component: HealthComponent
-var movement_component: MovementComponent
-
-# 用 get_node_or_null：没有血条 UI 的怪物也不会崩
-@onready var health_bar: ProgressBar = get_node_or_null("HealthBar") as ProgressBar
-@onready var health_label: Label = get_node_or_null("HealthNumber") as Label
-
+## 兼容属性：旧水晶逻辑读 body.get("damage")；迁移完成后删除
+var damage: int:
+	get: return monster_data.contact_damage if monster_data != null else 0
 
 func _ready() -> void:
 	add_to_group("enemy")
-	add_to_group("1_enemy")
 	if monster_data == null:
-		push_error("MonsterBase: 场景里没有配置 monster_data 资源")
+		push_error("MonsterBase requires MonsterData")
+		set_physics_process(false)
 		return
-	damage = monster_data.damage
-	health_component = HealthComponent.new()
-	health_component.init(monster_data.max_health)
-	health_component.health_changed.connect(_update_health_ui)
-	health_component.died.connect(die)
-	movement_component = MovementComponent.new()
-	movement_component.init(monster_data.move_speed)
-	_update_health_ui(health_component.get_health(), health_component.get_max_health())
-
-
-func _physics_process(delta: float) -> void:
-	if monster_data == null or move_target == null or not is_instance_valid(move_target):
-		return
-	if global_position.distance_to(move_target.global_position) < 20.0:
-		return   # 到达水晶：停下，扣血和销毁交给关卡的水晶碰撞（1_level.gd）
-	movement_component.move_toward(self, move_target.global_position, delta)
-
+	health_component.configure(monster_data.max_health, monster_data.armor)
+	movement_component.configure(self, target_component, monster_data.move_speed, monster_data.reach_distance)
+	contact_damage_component.configure(target_component, monster_data.contact_damage)
+	status_effect_component.configure(monster_data.negative_status_resistance)
+	reward_component.configure(monster_data.score_value, monster_data.energy_reward)
+	health_view_component.bind(health_component)
+	health_component.died.connect(_on_died)
+	movement_component.destination_reached.connect(_on_destination_reached)
+	status_effect_component.speed_multiplier_changed.connect(movement_component.set_speed_multiplier)
+	reward_component.reward_requested.connect(reward_requested.emit)
 
 func setup_target(target: Node2D) -> void:
-	move_target = target
-
+	target_component.set_target(target)
+	movement_component.start()
 
 func take_damage(amount: int) -> void:
-	if health_component == null:
-		return
 	health_component.take_damage(amount)
 
-
 func heal(amount: int) -> void:
-	if health_component == null:
-		return
 	health_component.heal(amount)
 
-
-func _update_health_ui(current_health: int, max_health: int) -> void:
-	if health_bar:
-		health_bar.max_value = max_health
-		health_bar.value = current_health
-	if health_label:
-		health_label.text = "%d/%d" % [current_health, max_health]
-
-
-## 预留扩展点：击杀金币/特效以后在这里加
-func die() -> void:
+func _on_died() -> void:
+	if _finished:
+		return
+	_finished = true
+	movement_component.stop()
+	reward_component.request_once()
+	died.emit(self)
 	queue_free()
+
+func _on_destination_reached() -> void:
+	if _finished or not contact_damage_component.apply_once():
+		return
+	_finished = true
+	reached_target.emit(self)
+	queue_free()
+
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := PackedStringArray()
+	if monster_data == null:
+		warnings.append("MonsterData is required")
+	var required := ["HealthComponent", "TargetComponent", "MovementComponent", "ContactDamageComponent", "StatusEffectComponent", "RewardComponent", "HealthViewComponent"]
+	for name in required:
+		if get_node_or_null(name) == null:
+			warnings.append("Missing required component: %s" % name)
+	return warnings

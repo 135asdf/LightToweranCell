@@ -4,9 +4,8 @@
 
 [resource]
 script = ExtResource("1_data")
-monster_name = "鞭毛虫"
+monster_id = &"flagellate"
+display_name = "鞭毛虫"
 max_health = 150
 move_speed = 100.0
-damage = 10
-score_value = 10
-monster_type = 0
+contact_damage = 10

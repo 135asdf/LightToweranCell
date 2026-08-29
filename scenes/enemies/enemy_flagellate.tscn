@@ -7,6 +7,6 @@
 [node name="EnemyFlagellate" instance=ExtResource("1_base")]
 monster_data = ExtResource("2_data")
 
-[node name="Sprite2D" parent="."]
+[node name="Visual/Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_tex")

@@ -4,9 +4,8 @@
 
 [resource]
 script = ExtResource("1_data")
-monster_name = "链球菌"
+monster_id = &"streptococcus"
+display_name = "链球菌"
 max_health = 100
 move_speed = 80.0
-damage = 10
-score_value = 10
-monster_type = 0
+contact_damage = 10
