@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_fu7wy")
-metadata/_custom_type_script = "uid://jcfka4gynoad"
+tower_id = &"light_tower"
+display_name = "光能塔"
+build_cost = 50

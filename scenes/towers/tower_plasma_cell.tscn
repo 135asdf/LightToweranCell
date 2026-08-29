@@ -1,18 +1,35 @@
-[gd_scene format=3]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Texture2D" uid="uid://de7q5j47yjkyj" path="res://Textures/towers/tower_plasma_cell/tower_plasma_cell.png" id="1_tower"]
-[ext_resource type="Script" uid="uid://fnoho0qq2ohg" path="res://scripts/towers/tower_plasma_cell.gd" id="2_script"]
+[ext_resource type="Script" path="res://scripts/towers/tower_plasma_cell.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/towers/tower_plasma_cell_stats.tres" id="2_data"]
+[ext_resource type="Script" path="res://base/tower_base/tower_visual.gd" id="3_visual"]
+[ext_resource type="Texture2D" path="res://Textures/towers/tower_plasma_cell/tower_plasma_cell.png" id="4_tex"]
 
-[sub_resource type="CircleShape2D" id="range_400"]
-radius = 400.0
+[sub_resource type="RectangleShape2D" id="click_shape"]
+size = Vector2(64, 64)
 
 [node name="Tower_Plasma_Cell" type="Node2D"]
-script = ExtResource("2_script")
+script = ExtResource("1_script")
+config = ExtResource("2_data")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tower")
+[node name="ClickArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="AttackRange" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("click_shape")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource("range_400")
+[node name="Visual" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_visual")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+texture = ExtResource("4_tex")
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ProductionTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ProjectileOrigin" type="Marker2D" parent="."]
+unique_name_in_owner = true

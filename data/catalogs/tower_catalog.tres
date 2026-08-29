@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TowerCatalog" format=3]
+
+[ext_resource type="Script" path="res://base/catalogs/tower_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" path="res://base/catalogs/tower_catalog_entry.gd" id="2_entry"]
+[ext_resource type="Resource" path="res://data/towers/tower_plasma_cell_stats.tres" id="3_plasma_data"]
+[ext_resource type="PackedScene" path="res://scenes/towers/tower_plasma_cell.tscn" id="4_plasma_scene"]
+[ext_resource type="Resource" path="res://data/towers/light_tower_stats.tres" id="5_light_data"]
+[ext_resource type="PackedScene" path="res://scenes/towers/light_tower.tscn" id="6_light_scene"]
+
+[sub_resource type="Resource" id="entry_plasma"]
+script = ExtResource("2_entry")
+tower_id = &"plasma_cell"
+data = ExtResource("3_plasma_data")
+scene = ExtResource("4_plasma_scene")
+
+[sub_resource type="Resource" id="entry_light"]
+script = ExtResource("2_entry")
+tower_id = &"light_tower"
+data = ExtResource("5_light_data")
+scene = ExtResource("6_light_scene")
+
+[resource]
+script = ExtResource("1_catalog")
+entries = Array[ExtResource("2_entry")]([SubResource("entry_plasma"), SubResource("entry_light")])
