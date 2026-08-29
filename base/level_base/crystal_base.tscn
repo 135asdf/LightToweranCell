@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://base/level_base/crystal_controller.gd" id="1_controller"]
+[ext_resource type="Script" path="res://base/components/health_component.gd" id="2_health"]
+
+[sub_resource type="CircleShape2D" id="circle_20"]
+radius = 20.0
+
+[node name="CrystalBase" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_controller")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("circle_20")
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_health")
