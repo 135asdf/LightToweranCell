@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://deof6st4mmak0"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" uid="uid://c8c6sfbyy7pk5" path="res://base/Managers/SceneManager.gd" id="1_v7uaw"]
+[ext_resource type="Resource" path="res://data/catalogs/level_catalog.tres" id="2_catalog"]
 
 [node name="SceneManager" type="Node" unique_id=843616286]
 script = ExtResource("1_v7uaw")
+level_catalog = ExtResource("2_catalog")
