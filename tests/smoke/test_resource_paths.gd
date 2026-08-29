@@ -11,7 +11,7 @@ func _run() -> void:
         "res://ui/Main/main.tscn",
         "res://ui/LevelSelection/level_selection.tscn",
         "res://ui/Lab/lab.tscn",
-        "res://level/1_level/1_level.tscn",
+        "res://scenes/levels/level_01.tscn",
         "res://base/enemy_base/enemy_base.tscn",
         "res://scenes/enemies/enemy_streptococcus.tscn",
         "res://scenes/enemies/enemy_flagellate.tscn",
