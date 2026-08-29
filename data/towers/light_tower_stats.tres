@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://cveitxbq74v24"]
+
+[ext_resource type="Script" uid="uid://jcfka4gynoad" path="res://base/tower_base/tower_data.gd" id="1_fu7wy"]
+
+[resource]
+script = ExtResource("1_fu7wy")
+metadata/_custom_type_script = "uid://jcfka4gynoad"

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://xb41nvb30b3k"]
+
+[ext_resource type="Script" uid="uid://dhuqaoqdupdig" path="res://base/tower_base/tower_base.gd" id="1_711ak"]
+[ext_resource type="Script" uid="uid://ds3fvw1jvvssa" path="res://base/tower_base/tower_visual.gd" id="2_h53ua"]
+
+[node name="TowerBase" type="Node2D" unique_id=335461323]
+script = ExtResource("1_711ak")
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=118371888]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1914963805]
+unique_name_in_owner = true
+
+[node name="Visual" type="Node2D" parent="." unique_id=1990157566]
+unique_name_in_owner = true
+script = ExtResource("2_h53ua")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=2121044526]
+unique_name_in_owner = true
+
+[node name="ProductionTimer" type="Timer" parent="." unique_id=1999846385]
+unique_name_in_owner = true

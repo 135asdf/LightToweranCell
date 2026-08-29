@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dihoxc2eywwh5"]
+
+[ext_resource type="Script" uid="uid://dbhbd5onp85iq" path="res://base/enemy_base/monster_base.gd" id="1_wb1pv"]
+
+[sub_resource type="CircleShape2D" id="circle_20"]
+radius = 20.0
+
+[sub_resource type="StyleBoxFlat" id="hp_bg"]
+bg_color = Color(0.15, 0.15, 0.15, 0.85)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="hp_fill"]
+bg_color = Color(0.3, 0.8, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=144477955]
+script = ExtResource("1_wb1pv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1378613579]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2062654268]
+shape = SubResource("circle_20")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1153968544]
+offset_left = -22.0
+offset_top = -32.0
+offset_right = 22.0
+offset_bottom = -24.0
+theme_override_styles/background = SubResource("hp_bg")
+theme_override_styles/fill = SubResource("hp_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HealthNumber" type="Label" parent="." unique_id=312253853]
+offset_left = -30.0
+offset_top = -46.0
+offset_right = 30.0
+offset_bottom = -34.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1

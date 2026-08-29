@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://base/enemy_base/enemy_base.tscn" id="1_base"]
+[ext_resource type="Resource" path="res://data/enemies/enemy_flagellate.tres" id="2_data"]
+[ext_resource type="Texture2D" path="res://Textures/enemies/1_enemy/1_enemy.png" id="3_tex"]
+
+[node name="EnemyFlagellate" instance=ExtResource("1_base")]
+monster_data = ExtResource("2_data")
+
+[node name="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_tex")

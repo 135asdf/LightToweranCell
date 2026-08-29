@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://cxfxlwal3jlxc"]
+
+[ext_resource type="Script" uid="uid://dfsb41wotboft" path="res://ui/LevelSelection/level_selection.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cje284wlnx3ua" path="res://Textures/backbutton/backbutton.png" id="2_back"]
+
+[node name="LevelSelection" type="Control" unique_id=363833002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1651875399]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1102574340]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -204.0
+offset_right = 132.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 42
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer" unique_id=244148620]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="level1" type="Button" parent="VBoxContainer/HBoxContainer1" unique_id=5774797]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="level2" type="Button" parent="VBoxContainer/HBoxContainer1" unique_id=902820669]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="level3" type="Button" parent="VBoxContainer/HBoxContainer1" unique_id=452972200]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=962921738]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="level4" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1130606300]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="level5" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1297911395]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="level6" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=2093631847]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=953123701]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="level7" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=667794603]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="level8" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=787073423]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="level9" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=190614060]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=2004597843]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="level10" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1800565123]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+
+[node name="level11" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1099619478]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "11"
+
+[node name="level12" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1875346175]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "12"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=35392359]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="level13" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=1085134862]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "13"
+
+[node name="level14" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=1808719859]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "14"
+
+[node name="level15" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=356621254]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "15"
+
+[node name="backbutton" type="TextureButton" parent="." unique_id=999042421]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 43.0
+offset_right = 124.0
+offset_bottom = 83.0
+texture_normal = ExtResource("2_back")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/level1" to="." method="_on_level_button_pressed" binds= ["level_1"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/level2" to="." method="_on_level_button_pressed" binds= ["level_2"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/level3" to="." method="_on_level_button_pressed" binds= ["level_3"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/level4" to="." method="_on_level_button_pressed" binds= ["level_4"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/level5" to="." method="_on_level_button_pressed" binds= ["level_5"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/level6" to="." method="_on_level_button_pressed" binds= ["level_6"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/level7" to="." method="_on_level_button_pressed" binds= ["level_7"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/level8" to="." method="_on_level_button_pressed" binds= ["level_8"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/level9" to="." method="_on_level_button_pressed" binds= ["level_9"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/level10" to="." method="_on_level_button_pressed" binds= ["level_10"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/level11" to="." method="_on_level_button_pressed" binds= ["level_11"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/level12" to="." method="_on_level_button_pressed" binds= ["level_12"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/level13" to="." method="_on_level_button_pressed" binds= ["level_13"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/level14" to="." method="_on_level_button_pressed" binds= ["level_14"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/level15" to="." method="_on_level_button_pressed" binds= ["level_15"]]
+[connection signal="pressed" from="backbutton" to="." method="_on_backbutton_pressed"]

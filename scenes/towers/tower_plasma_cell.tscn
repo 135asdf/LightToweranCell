@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://de7q5j47yjkyj" path="res://Textures/towers/tower_plasma_cell/tower_plasma_cell.png" id="1_tower"]
+[ext_resource type="Script" uid="uid://fnoho0qq2ohg" path="res://scripts/towers/tower_plasma_cell.gd" id="2_script"]
+
+[sub_resource type="CircleShape2D" id="range_400"]
+radius = 400.0
+
+[node name="Tower_Plasma_Cell" type="Node2D"]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tower")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("range_400")

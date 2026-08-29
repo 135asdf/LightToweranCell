@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://dnr27vki0qex" path="res://Textures/towers/tower_plasma_cell_bullet/tower_plasma_cell_bullet.png" id="1_bullet"]
+[ext_resource type="Script" uid="uid://beeucov2liadu" path="res://scripts/towers/tower_plasma_cell_bullet.gd" id="2_script"]
+
+[sub_resource type="CircleShape2D" id="bullet_col"]
+radius = 8.0
+
+[node name="Tower_Plasma_Cell_Bullet" type="Area2D"]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bullet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("bullet_col")

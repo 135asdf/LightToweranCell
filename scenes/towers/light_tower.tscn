@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cvlp5skdrhpxw"]
+
+[ext_resource type="Script" uid="uid://c8hvgm6bedhhx" path="res://scripts/towers/light_tower.gd" id="1_b6vqw"]
+[ext_resource type="Script" path="res://base/tower_base/tower_visual.gd" id="3_visual"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riyvm"]
+
+[node name="LightTower" type="Node2D" unique_id=335461323]
+script = ExtResource("1_b6vqw")
+can_produce = true
+can_attack = true
+can_conduction = true
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=118371888]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1914963805]
+unique_name_in_owner = true
+
+[node name="Visual" type="Node2D" parent="." unique_id=1990157566]
+unique_name_in_owner = true
+script = ExtResource("3_visual")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=688721577]
+sprite_frames = SubResource("SpriteFrames_riyvm")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=2121044526]
+unique_name_in_owner = true
+
+[node name="ProductionTimer" type="Timer" parent="." unique_id=1999846385]
+unique_name_in_owner = true

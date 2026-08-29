@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://co6jvylcesuyi"]
+
+[ext_resource type="Script" uid="uid://2aq0ptsbpmka" path="res://ui/Main/main.gd" id="1_yh5la"]
+
+[node name="Main" type="Control" unique_id=2025076241]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yh5la")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=685236950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -6.0
+offset_right = -20.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="." unique_id=92281343]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioButton" type="TextureButton" parent="." unique_id=750706625]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=977620883]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = 22.0
+offset_right = 143.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=23709401]
+layout_mode = 2
+text = "开始游戏"
+
+[node name="LabButton" type="Button" parent="VBoxContainer" unique_id=1192462772]
+layout_mode = 2
+text = "实验室"
+
+[connection signal="pressed" from="AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LabButton" to="." method="_on_lab_button_pressed"]
