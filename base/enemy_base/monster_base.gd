@@ -37,6 +37,7 @@ func _ready() -> void:
 	status_effect_component.speed_multiplier_changed.connect(movement_component.set_speed_multiplier)
 	reward_component.reward_requested.connect(reward_requested.emit)
 
+
 func setup_target(target: Node2D) -> void:
 	target_component.set_target(target)
 	movement_component.start()

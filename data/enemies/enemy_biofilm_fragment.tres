@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://c3skfxottcaa4"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_o4hga"]
+
+[resource]
+script = ExtResource("1_o4hga")
+monster_id = &"biofilm fragment"
+display_name = "生物膜碎块"
+metadata/_custom_type_script = "uid://06cvubhk8efr"

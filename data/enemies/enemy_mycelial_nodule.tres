@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cdywbi8duk16i"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_ltifw"]
+
+[resource]
+script = ExtResource("1_ltifw")
+monster_id = &"mycelial nodule"
+display_name = "菌丝结节"
+monster_type = 1
+metadata/_custom_type_script = "uid://06cvubhk8efr"

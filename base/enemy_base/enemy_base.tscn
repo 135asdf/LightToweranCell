@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene format=3 uid="uid://8onpi5hgh6p4"]
 
-[ext_resource type="Script" path="res://base/enemy_base/monster_base.gd" id="1_base"]
-[ext_resource type="Script" path="res://base/components/health_component.gd" id="2_health"]
-[ext_resource type="Script" path="res://base/enemy_base/components/target_component.gd" id="3_target"]
-[ext_resource type="Script" path="res://base/enemy_base/components/movement_component.gd" id="4_movement"]
-[ext_resource type="Script" path="res://base/enemy_base/components/contact_damage_component.gd" id="5_contact"]
-[ext_resource type="Script" path="res://base/components/status_effect_component.gd" id="6_status"]
-[ext_resource type="Script" path="res://base/enemy_base/components/reward_component.gd" id="7_reward"]
-[ext_resource type="Script" path="res://base/enemy_base/components/health_view_component.gd" id="8_view"]
+[ext_resource type="Script" uid="uid://dbhbd5onp85iq" path="res://base/enemy_base/monster_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://bt6rv1488wfnm" path="res://base/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" uid="uid://cr53r4qowq5qw" path="res://base/enemy_base/components/target_component.gd" id="3_target"]
+[ext_resource type="Script" uid="uid://byl7f2g3n6wmi" path="res://base/enemy_base/components/movement_component.gd" id="4_movement"]
+[ext_resource type="Script" uid="uid://y5c5j0gesmp8" path="res://base/enemy_base/components/contact_damage_component.gd" id="5_contact"]
+[ext_resource type="Script" uid="uid://00ia8teecvlb" path="res://base/components/status_effect_component.gd" id="6_status"]
+[ext_resource type="Script" uid="uid://cavyo8whsoun0" path="res://base/enemy_base/components/reward_component.gd" id="7_reward"]
+[ext_resource type="Script" uid="uid://btcna22v0mheq" path="res://base/enemy_base/components/health_view_component.gd" id="8_view"]
 
 [sub_resource type="CircleShape2D" id="circle_20"]
 radius = 20.0
@@ -16,39 +16,39 @@ radius = 20.0
 bg_color = Color(0.15, 0.15, 0.15, 0.85)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_left = 3
 corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="hp_fill"]
 bg_color = Color(0.3, 0.8, 0.3, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
-corner_radius_bottom_left = 3
 corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
-[node name="EnemyBase" type="CharacterBody2D"]
+[node name="EnemyBase" type="CharacterBody2D" unique_id=2128021766]
+collision_mask = 0
 script = ExtResource("1_base")
 
-[node name="Visual" type="Node2D" parent="."]
+[node name="Visual" type="Node2D" parent="." unique_id=145948230]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" unique_id=885591652]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1590687671]
 shape = SubResource("circle_20")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1016185214]
 unique_name_in_owner = true
 offset_left = -22.0
 offset_top = -32.0
 offset_right = 22.0
 offset_bottom = -24.0
-max_value = 100.0
-value = 100.0
-show_percentage = false
 theme_override_styles/background = SubResource("hp_bg")
 theme_override_styles/fill = SubResource("hp_fill")
+value = 100.0
+show_percentage = false
 
-[node name="HealthNumber" type="Label" parent="."]
+[node name="HealthNumber" type="Label" parent="." unique_id=2088841565]
 unique_name_in_owner = true
 offset_left = -30.0
 offset_top = -46.0
@@ -62,32 +62,30 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." unique_id=1649092178]
 unique_name_in_owner = true
 script = ExtResource("2_health")
 
-[node name="TargetComponent" type="Node" parent="."]
+[node name="TargetComponent" type="Node" parent="." unique_id=1839160795]
 unique_name_in_owner = true
 script = ExtResource("3_target")
 
-[node name="MovementComponent" type="Node" parent="."]
+[node name="MovementComponent" type="Node" parent="." unique_id=1214459277]
 unique_name_in_owner = true
 script = ExtResource("4_movement")
 
-[node name="ContactDamageComponent" type="Node" parent="."]
+[node name="ContactDamageComponent" type="Node" parent="." unique_id=2038569005]
 unique_name_in_owner = true
 script = ExtResource("5_contact")
 
-[node name="StatusEffectComponent" type="Node" parent="."]
+[node name="StatusEffectComponent" type="Node" parent="." unique_id=1758376308]
 unique_name_in_owner = true
 script = ExtResource("6_status")
 
-[node name="RewardComponent" type="Node" parent="."]
+[node name="RewardComponent" type="Node" parent="." unique_id=727274487]
 unique_name_in_owner = true
 script = ExtResource("7_reward")
 
-[node name="HealthViewComponent" type="Node" parent="."]
+[node name="HealthViewComponent" type="Node" parent="." unique_id=634789117]
 unique_name_in_owner = true
 script = ExtResource("8_view")
-health_bar = NodePath("../HealthBar")
-health_label = NodePath("../HealthNumber")

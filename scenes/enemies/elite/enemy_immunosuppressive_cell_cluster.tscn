@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://3sqbgldx7mbh"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_ub3pj"]
+[ext_resource type="Resource" uid="uid://yfbon2dynq34" path="res://data/enemies/enemy_immunosuppressive_cell_cluster.tres" id="2_cas80"]
+[ext_resource type="Texture2D" uid="uid://denyipf348d0t" path="res://Textures/enemies/basic/basic.png" id="3_k7rib"]
+[ext_resource type="Script" uid="uid://b8ejfqrjvljvk" path="res://scenes/enemies/enemy_skill/immunosuppressive_cell_cluster_skill/recover_area.gd" id="4_oeehm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjqgx"]
+radius = 252.16066
+
+[node name="EnemyImmunosuppressiveCellCluster" unique_id=2128021766 instance=ExtResource("1_ub3pj")]
+monster_data = ExtResource("2_cas80")
+
+[node name="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(145948230) index="0" unique_id=885591652]
+texture = ExtResource("3_k7rib")
+
+[node name="RecoverArea" type="Area2D" parent="." index="11" unique_id=376196247]
+script = ExtResource("4_oeehm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecoverArea" index="0" unique_id=1815477041]
+shape = SubResource("CircleShape2D_bjqgx")
+
+[node name="HealTimer" type="Timer" parent="RecoverArea" index="1" unique_id=2126818085]
+autostart = true

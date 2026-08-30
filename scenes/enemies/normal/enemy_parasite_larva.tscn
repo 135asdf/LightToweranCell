@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dk5q6j7iaoqdu"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_fp581"]
+[ext_resource type="Resource" uid="uid://wercy1vmlcbf" path="res://data/enemies/enemy_parasite_larva.tres" id="2_2s8if"]
+
+[node name="EnemyParasiteLarva" unique_id=2128021766 instance=ExtResource("1_fp581")]
+monster_data = ExtResource("2_2s8if")

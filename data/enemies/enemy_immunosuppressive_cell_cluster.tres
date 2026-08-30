@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://yfbon2dynq34"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_hsqvd"]
+
+[resource]
+script = ExtResource("1_hsqvd")
+monster_id = &"immunosuppressive cell cluster"
+monster_type = 1
+metadata/_custom_type_script = "uid://06cvubhk8efr"
