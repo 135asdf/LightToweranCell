@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://iovowvjogxjl"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_lwb2j"]
+[ext_resource type="Resource" uid="uid://drb3d4fasocwl" path="res://data/enemies/enemy_free_virion.tres" id="2_xkfne"]
+
+[node name="EnemyFreeVirion" unique_id=2128021766 instance=ExtResource("1_lwb2j")]
+monster_data = ExtResource("2_xkfne")

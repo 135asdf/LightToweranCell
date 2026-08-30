@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bttn2tttemuhq"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_5n51g"]
+
+[resource]
+script = ExtResource("1_5n51g")
+monster_id = &"latently infected cell"
+display_name = "潜伏感染细胞"
+monster_type = 1
+metadata/_custom_type_script = "uid://06cvubhk8efr"

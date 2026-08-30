@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cqcfi8rpouv2s"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_s0tnn"]
+
+[resource]
+script = ExtResource("1_s0tnn")
+monster_id = &"capsulated"
+display_name = "荚膜菌"
+armor = 0.5
+metadata/_custom_type_script = "uid://06cvubhk8efr"

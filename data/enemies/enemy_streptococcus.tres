@@ -1,11 +1,8 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cfav22xxpbhum"]
 
-[ext_resource type="Script" path="res://base/enemy_base/monster_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_data"]
 
 [resource]
 script = ExtResource("1_data")
 monster_id = &"streptococcus"
 display_name = "链球菌"
-max_health = 100
-move_speed = 80.0
-contact_damage = 10

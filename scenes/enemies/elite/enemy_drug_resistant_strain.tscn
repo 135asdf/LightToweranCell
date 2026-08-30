@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://kwqo4712s48m"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_30pps"]
+[ext_resource type="Resource" uid="uid://b0ls5ao1rc76k" path="res://data/enemies/enemy_drug_resistant_strain.tres" id="2_gridp"]
+
+[node name="EnemyDrugResistantStrain" unique_id=2128021766 instance=ExtResource("1_30pps")]
+monster_data = ExtResource("2_gridp")

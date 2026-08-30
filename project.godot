@@ -12,7 +12,7 @@ config_version=5
 
 config/name="塔防"
 run/main_scene="res://ui/Main/main.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -33,9 +33,19 @@ project/assembly_name="塔防"
 
 folder_colors={
 "res://Textures/": "purple",
+"res://base/": "red",
 "res://base/Managers/": "teal",
-"res://scenes/enemies/": "red",
+"res://data/": "orange",
+"res://docs/": "yellow",
+"res://docx/": "green",
+"res://scenes/": "teal",
+"res://scenes/enemies/": "teal",
+"res://scenes/enemies/boss/": "red",
+"res://scenes/enemies/elite/": "pink",
+"res://scenes/enemies/normal/": "gray",
 "res://scenes/towers/": "pink",
+"res://tests/": "blue",
+"res://ui/": "pink",
 "res://ui/Lab/": "orange",
 "res://ui/LevelSelection/": "yellow",
 "res://ui/Main/": "green"
