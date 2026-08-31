@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj30kb4fp5iho" path="res://base/level_base/resources/wave_data.gd" id="1_wave"]
 [ext_resource type="Script" uid="uid://da08vlqa3vy1p" path="res://base/level_base/resources/enemy_spawn_entry.gd" id="2_entry"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_streptococcus.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/normal/enemy_streptococcus.tscn" id="3_enemy"]
 
 [sub_resource type="Resource" id="entry_1"]
 script = ExtResource("2_entry")

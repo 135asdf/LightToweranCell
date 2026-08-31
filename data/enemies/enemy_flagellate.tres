@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://d1tgaag7ia0ec"]
 
-[ext_resource type="Script" path="res://base/enemy_base/monster_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_data"]
 
 [resource]
 script = ExtResource("1_data")
 monster_id = &"flagellate"
-display_name = "鞭毛虫"
+display_name = "鞭毛菌"
 max_health = 150
 move_speed = 100.0
-contact_damage = 10

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dk20k1x2euo6w"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_cbahj"]
+[ext_resource type="Resource" uid="uid://cdywbi8duk16i" path="res://data/enemies/enemy_mycelial_nodule.tres" id="2_v0cet"]
+
+[node name="EnemyMycelialNodule" unique_id=2128021766 instance=ExtResource("1_cbahj")]
+monster_data = ExtResource("2_v0cet")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://b0ls5ao1rc76k"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_w2scc"]
+
+[resource]
+script = ExtResource("1_w2scc")
+monster_id = &"drug resistant strain"
+display_name = "耐药菌株"
+monster_type = 1
+metadata/_custom_type_script = "uid://06cvubhk8efr"

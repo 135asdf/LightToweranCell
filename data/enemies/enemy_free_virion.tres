@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://drb3d4fasocwl"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_y84mx"]
+
+[resource]
+script = ExtResource("1_y84mx")
+monster_id = &"free virion"
+display_name = "游离病毒体"
+move_speed = 120.0
+metadata/_custom_type_script = "uid://06cvubhk8efr"

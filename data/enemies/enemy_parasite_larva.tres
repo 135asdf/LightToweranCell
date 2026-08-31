@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://wercy1vmlcbf"]
+
+[ext_resource type="Script" uid="uid://06cvubhk8efr" path="res://base/enemy_base/monster_data.gd" id="1_y6nno"]
+
+[resource]
+script = ExtResource("1_y6nno")
+monster_id = &"parasite larva"
+display_name = "寄生虫幼体"
+move_speed = 120.0
+metadata/_custom_type_script = "uid://06cvubhk8efr"

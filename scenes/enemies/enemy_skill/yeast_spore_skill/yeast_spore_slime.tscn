@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ef1xjx30bh2s"]
+
+[ext_resource type="Script" uid="uid://blkgqtv541p2i" path="res://scenes/enemies/enemy_skill/yeast_spore_skill/yeast_spore_slime.gd" id="1_0ot27"]
+[ext_resource type="Texture2D" uid="uid://dkt7kb654kain" path="res://Textures/map/slot/slot.png" id="2_mk0ru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjqgx"]
+size = Vector2(196, 75)
+
+[node name="YeastSporeSlime" type="Area2D" unique_id=1026466953]
+collision_layer = 0
+script = ExtResource("1_0ot27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=9894555]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_bjqgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1001430682]
+position = Vector2(-1, -7.5)
+scale = Vector2(3.1875, 1.234375)
+texture = ExtResource("2_mk0ru")

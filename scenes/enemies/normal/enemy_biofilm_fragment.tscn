@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctuvvrqecybmx"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_5t2in"]
+[ext_resource type="Resource" uid="uid://c3skfxottcaa4" path="res://data/enemies/enemy_biofilm_fragment.tres" id="2_1xpvv"]
+[ext_resource type="Script" uid="uid://y0pim2qeqvge" path="res://scenes/enemies/enemy_skill/biofilm_fragment_skill/arror_area.gd" id="3_1xpvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjqgx"]
+radius = 128.06248
+
+[node name="EnemyBiofilmFragment" unique_id=2128021766 instance=ExtResource("1_5t2in")]
+monster_data = ExtResource("2_1xpvv")
+
+[node name="ArrorArea" type="Area2D" parent="." index="11" unique_id=311818337]
+collision_layer = 0
+script = ExtResource("3_1xpvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrorArea" index="0" unique_id=433719865]
+shape = SubResource("CircleShape2D_bjqgx")
+debug_color = Color(0.16738597, 0.63937926, 0.23395228, 0.41960785)

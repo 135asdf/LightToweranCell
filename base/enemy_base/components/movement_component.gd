@@ -27,7 +27,7 @@ func stop() -> void:
 		_body.velocity = Vector2.ZERO
 
 func set_speed_multiplier(value: float) -> void:
-	_speed_multiplier = clampf(value, 0.0, 1.0)
+	_speed_multiplier = clampf(value, 0.0, 3.0)
 
 func tick(delta: float) -> void:
 	if not _running:

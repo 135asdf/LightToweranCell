@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d3k2u8w5qi7a3"]
+
+[ext_resource type="PackedScene" uid="uid://8onpi5hgh6p4" path="res://base/enemy_base/enemy_base.tscn" id="1_nned0"]
+[ext_resource type="Resource" uid="uid://bttn2tttemuhq" path="res://data/enemies/enemy_latenely_infected_cell.tres" id="2_3ebtf"]
+
+[node name="EnemyLatentlyInfectedCell" unique_id=2128021766 instance=ExtResource("1_nned0")]
+monster_data = ExtResource("2_3ebtf")

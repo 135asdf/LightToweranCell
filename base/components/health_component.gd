@@ -44,3 +44,9 @@ func get_max_health() -> int:
 
 func is_dead() -> bool:
 	return _current_health <= 0
+
+func get_armor() -> float:
+	return _armor
+
+func set_armor(value: float) -> void:
+	_armor = value
