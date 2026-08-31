@@ -1,6 +1,6 @@
 extends SceneTree
 const TestSuite = preload("res://tests/support/test_suite.gd")
-const EnemyScene = preload("res://scenes/enemies/enemy_streptococcus.tscn")
+const EnemyScene = preload("res://scenes/enemies/normal/enemy_streptococcus.tscn")
 const CrystalScene = preload("res://base/level_base/crystal_base.tscn")
 
 func _init() -> void:

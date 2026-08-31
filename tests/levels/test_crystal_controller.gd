@@ -8,10 +8,16 @@ func _init() -> void:
 func _run() -> void:
     var suite := TestSuite.new()
     var crystal := CrystalScene.instantiate() as CrystalController
+    crystal.position = Vector2(320, 240)
     root.add_child(crystal)
     var destroyed := [0]
     crystal.crystal_destroyed.connect(func(): destroyed[0] += 1)
     crystal.configure(20)
+    suite.expect_eq(
+        crystal.health_view_component.get_global_transform_with_canvas().origin,
+        crystal.global_position,
+        "health view follows crystal canvas position"
+    )
     crystal.take_contact_damage(7)
     suite.expect_eq(crystal.health_component.get_health(), 13, "contact damage")
     crystal.take_contact_damage(20)

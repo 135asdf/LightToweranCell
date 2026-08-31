@@ -20,5 +20,8 @@ func _run() -> void:
         suite.expect_true(level.get_node_or_null("HUD/ResultPanel") != null, "result panel")
         root.add_child(level)
         await process_frame
-        suite.expect_eq(level.build_grid.world_to_cell(level.level_data.grid_config.origin), Vector2i(9, 5), "configured grid")
+        # origin 应映射到网格中心格（不依赖具体行列配置）
+        var config := level.level_data.grid_config
+        var center := Vector2i(roundi((config.columns - 1) / 2.0), roundi((config.rows - 1) / 2.0))
+        suite.expect_eq(level.build_grid.world_to_cell(config.origin), center, "configured grid")
     suite.finish(self)

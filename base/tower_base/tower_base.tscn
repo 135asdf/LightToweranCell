@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dhuqaoqdupdig" path="res://base/tower_base/tower_base.gd" id="1_711ak"]
 [ext_resource type="Script" uid="uid://ds3fvw1jvvssa" path="res://base/tower_base/tower_visual.gd" id="2_h53ua"]
+[ext_resource type="Script" uid="uid://bt6rv1488wfnm" path="res://base/components/health_component.gd" id="3_x3dwo"]
+[ext_resource type="Script" uid="uid://qijt62rc68qe" path="res://base/components/shield_component.gd" id="4_13nw8"]
+[ext_resource type="Script" uid="uid://btcna22v0mheq" path="res://base/components/health_view_component.gd" id="5_view"]
+
+[sub_resource type="RectangleShape2D" id="block_shape"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="click_shape"]
+size = Vector2(32, 32)
 
 [node name="TowerBase" type="Node2D" unique_id=335461323]
 script = ExtResource("1_711ak")
@@ -11,10 +20,32 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1914963805]
 unique_name_in_owner = true
+shape = SubResource("click_shape")
 
 [node name="Visual" type="Node2D" parent="." unique_id=1990157566]
 unique_name_in_owner = true
 script = ExtResource("2_h53ua")
+
+[node name="Body" type="StaticBody2D" parent="." unique_id=410790968]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=491918451]
+shape = SubResource("block_shape")
+
+[node name="HealthView" type="Node2D" parent="." unique_id=1129290937]
+unique_name_in_owner = true
+script = ExtResource("5_view")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=249683044]
+unique_name_in_owner = true
+script = ExtResource("3_x3dwo")
+metadata/_custom_type_script = "uid://bt6rv1488wfnm"
+
+[node name="ShieldComponent" type="Node" parent="." unique_id=1149114042]
+unique_name_in_owner = true
+script = ExtResource("4_13nw8")
+metadata/_custom_type_script = "uid://qijt62rc68qe"
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=2121044526]
 unique_name_in_owner = true

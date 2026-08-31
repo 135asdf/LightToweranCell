@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mo5iaoxjrpo0" path="res://base/level_base/crystal_controller.gd" id="1_controller"]
 [ext_resource type="Script" uid="uid://bt6rv1488wfnm" path="res://base/components/health_component.gd" id="2_health"]
 [ext_resource type="Texture2D" uid="uid://biap2lfp8s5y" path="res://Textures/map/crystal/crystal.png" id="2_qip32"]
+[ext_resource type="Script" uid="uid://btcna22v0mheq" path="res://base/components/health_view_component.gd" id="3_cl153"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcr8w"]
 size = Vector2(39.597984, 39.597984)
@@ -20,6 +21,11 @@ rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_pcr8w")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=248109829]
+[node name="HealthViewComponent" type="Node2D" parent="." unique_id=498895429]
+unique_name_in_owner = true
+script = ExtResource("3_cl153")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=241142889]
 unique_name_in_owner = true
 script = ExtResource("2_health")
+metadata/_custom_type_script = "uid://bt6rv1488wfnm"

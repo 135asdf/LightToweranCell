@@ -12,3 +12,10 @@ func apply_visual(mode: int, level: int) -> void:
 func show_cooling(seconds: float) -> void:
 	# 更新冷却倒计时 Label 文本，<= 0 时隐藏
 	pass
+
+
+## 塔损坏外观：整体变灰（简单实现，后续可换成损坏贴图/动画）
+func set_destroyed() -> void:
+	for child in get_children():
+		if child is CanvasItem:
+			(child as CanvasItem).modulate = Color(0.45, 0.45, 0.45, 0.7)

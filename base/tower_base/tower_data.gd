@@ -14,13 +14,16 @@ extends Resource
 @export_range(0, 100000, 1) var build_cost: int = 10
 
 ## —— 基础属性 ——
-@export var attack_range := 300.0          # 攻击半径（策划：半径 300）
-@export var attack_interval := 0.2         # 攻击间隔（秒）
-@export var base_damage := 10.0            # 单发基础伤害（待定）
-@export var charge_range := 400.0          # 传导范围（策划：半径 400）
+@export var attack_range := 300.0          ## 攻击半径（策划：半径 300）
+@export var attack_interval := 0.2         ## 攻击间隔（秒）
+@export var base_damage := 10.0            ## 单发基础伤害（待定）
+@export var charge_range := 400.0          ## 传导范围（策划：半径 400）
+@export var max_health : int = 300         ##最大生命值
+@export var max_shield : int = 100         ##最大护盾值
+@export var shield_regen_per_sec : float = 0.0 ##护盾每秒回复量
 
 ## —— 生产模式 ——
-@export var production_interval := 10.0    # 生产间隔（秒）（策划：每10秒）
+@export var production_interval := 10.0    ## 生产间隔（秒）（策划：每10秒）
 @export var production_by_charge := [5.0, 12.0, 20.0, 30.0]
 ## 单次产量按充能层数取：0/1/2/3 层 → 5/12/20/30 光能（策划）
 

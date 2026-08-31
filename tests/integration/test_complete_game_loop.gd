@@ -1,7 +1,7 @@
 extends SceneTree
 const TestSuite = preload("res://tests/support/test_suite.gd")
 const LevelScene = preload("res://scenes/levels/level_01.tscn")
-const EnemyScene = preload("res://scenes/enemies/enemy_streptococcus.tscn")
+const EnemyScene = preload("res://scenes/enemies/normal/enemy_streptococcus.tscn")
 
 func _init() -> void:
     call_deferred("_run")
@@ -24,6 +24,7 @@ func _single_enemy_level_data(source: LevelData) -> LevelData:
 
 func _run() -> void:
     var suite := TestSuite.new()
+    GameState.inventory.add(&"plasma_cell", 5)   # 预置背包数量，确保可选等离子塔
     var level := LevelScene.instantiate() as LevelController
     level.level_data = _single_enemy_level_data(level.level_data)
     root.add_child(level)

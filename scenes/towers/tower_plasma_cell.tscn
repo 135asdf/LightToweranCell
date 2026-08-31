@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/towers/tower_plasma_cell.gd" id="1_script"]
 [ext_resource type="Resource" path="res://data/towers/tower_plasma_cell_stats.tres" id="2_data"]
 [ext_resource type="Script" path="res://base/tower_base/tower_visual.gd" id="3_visual"]
 [ext_resource type="Texture2D" path="res://Textures/towers/tower_plasma_cell/tower_plasma_cell.png" id="4_tex"]
+[ext_resource type="Script" path="res://base/components/health_component.gd" id="5_health"]
+[ext_resource type="Script" path="res://base/components/shield_component.gd" id="6_shield"]
+[ext_resource type="Script" path="res://base/components/health_view_component.gd" id="7_view"]
 
 [sub_resource type="RectangleShape2D" id="click_shape"]
-size = Vector2(64, 64)
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="block_shape"]
+size = Vector2(32, 32)
 
 [node name="Tower_Plasma_Cell" type="Node2D"]
 script = ExtResource("1_script")
@@ -33,3 +39,22 @@ unique_name_in_owner = true
 
 [node name="ProjectileOrigin" type="Marker2D" parent="."]
 unique_name_in_owner = true
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_health")
+
+[node name="ShieldComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_shield")
+
+[node name="HealthView" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_view")
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("block_shape")

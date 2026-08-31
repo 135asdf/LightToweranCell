@@ -19,6 +19,11 @@ enum MonsterType { NORMAL, ELITE, BOSS }
 @export_range(0, 100000, 1) var contact_damage: int = 10
 @export_range(1.0, 256.0, 1.0, "suffix:px") var reach_distance: float = 20.0
 
+@export_group("Tower Attack")
+@export_range(0, 100000, 1) var tower_attack_damage: int = 5
+@export_range(0.1, 10.0, 0.1, "suffix:s") var tower_attack_interval: float = 1.0
+@export_range(1.0, 256.0, 1.0, "suffix:px") var tower_attack_range: float = 60.0
+
 @export_group("Status")
 @export_range(0.0, 1.0, 0.01) var negative_status_resistance: float = 0.0
 

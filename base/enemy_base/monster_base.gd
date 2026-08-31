@@ -13,6 +13,7 @@ signal reward_requested(score: int, energy: int)
 @onready var status_effect_component: StatusEffectComponent = %StatusEffectComponent
 @onready var reward_component: RewardComponent = %RewardComponent
 @onready var health_view_component: HealthViewComponent = %HealthViewComponent
+@onready var attack_component: EnemyAttackComponent = %EnemyAttackComponent
 
 var _finished := false
 
@@ -31,6 +32,7 @@ func _ready() -> void:
 	contact_damage_component.configure(target_component, monster_data.contact_damage)
 	status_effect_component.configure(monster_data.negative_status_resistance)
 	reward_component.configure(monster_data.score_value, monster_data.energy_reward)
+	attack_component.configure(self, target_component, movement_component, monster_data)
 	health_view_component.bind(health_component)
 	health_component.died.connect(_on_died)
 	movement_component.destination_reached.connect(_on_destination_reached)
@@ -53,6 +55,7 @@ func _on_died() -> void:
 		return
 	_finished = true
 	movement_component.stop()
+	attack_component.stop()
 	reward_component.request_once()
 	died.emit(self)
 	queue_free()

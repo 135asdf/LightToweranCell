@@ -9,6 +9,7 @@ var _allowed_ids: Array[StringName] = []
 var _grid: BuildGridComponent
 var _economy: EconomyComponent
 var _towers_container: Node2D
+var _inventory: Inventory = null
 var _selected_tower_id: StringName = &""
 
 func configure(
@@ -16,17 +17,22 @@ func configure(
     allowed_ids: Array[StringName],
     grid: BuildGridComponent,
     economy: EconomyComponent,
-    towers_container: Node2D
+    towers_container: Node2D,
+    inventory: Inventory = null
 ) -> void:
     _catalog = catalog
     _allowed_ids = allowed_ids
     _grid = grid
     _economy = economy
     _towers_container = towers_container
+    _inventory = inventory
 
 func select_tower(tower_id: StringName) -> bool:
     if tower_id not in _allowed_ids or _catalog.find_by_id(tower_id) == null:
         placement_failed.emit("tower_not_allowed")
+        return false
+    if _inventory != null and _inventory.count(tower_id) <= 0:
+        placement_failed.emit("no_tower_in_inventory")
         return false
     _selected_tower_id = tower_id
     return true
@@ -56,5 +62,7 @@ func place_at_world(world_position: Vector2) -> TowerBase:
         tower.queue_free()
         placement_failed.emit("occupancy_race")
         return null
+    if _inventory != null:
+        _inventory.remove(entry.data.tower_id, 1)
     tower_placed.emit(tower, cell)
     return tower

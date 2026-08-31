@@ -13,8 +13,8 @@ func _run() -> void:
         "res://ui/Lab/lab.tscn",
         "res://scenes/levels/level_01.tscn",
         "res://base/enemy_base/enemy_base.tscn",
-        "res://scenes/enemies/enemy_streptococcus.tscn",
-        "res://scenes/enemies/enemy_flagellate.tscn",
+        "res://scenes/enemies/normal/enemy_streptococcus.tscn",
+        "res://scenes/enemies/normal/enemy_flagellate.tscn",
         "res://scenes/towers/light_tower.tscn",
     ]
     for path in required:

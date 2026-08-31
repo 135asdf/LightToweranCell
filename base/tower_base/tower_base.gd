@@ -38,6 +38,7 @@ var is_overclocked := false ##正在释放超频大招
 var cooling_time_left := 0.0
 var is_supplier := false
 var light_energy := 0.0
+var is_destroyed := false
 
 ## —— 供能链接（本塔作为供能方时）——
 var outbound_link : Line2D = null
@@ -49,14 +50,23 @@ var outbound_gained : int = 0
 @onready var visual: TowerVisual = %Visual
 @onready var attack_timer: Timer = $AttackTimer
 @onready var production_timer: Timer = $ProductionTimer
+@onready var health_component: HealthComponent = %HealthComponent
+@onready var shield_component: ShieldComponent = %ShieldComponent
+@onready var health_view_component: HealthViewComponent = get_node_or_null("HealthView") as HealthViewComponent
+@onready var body_node: StaticBody2D = get_node_or_null("Body") as StaticBody2D
 
 func _ready() -> void:
 	add_to_group("tower")
 	if config != null:
 		attack_timer.wait_time = config.attack_interval
 		production_timer.wait_time =  config.production_interval
+		health_component.configure(config.max_health)
+		shield_component.configure(config.max_shield, config.shield_regen_per_sec)
+		if health_view_component != null:
+			health_view_component.bind(health_component)
 	attack_timer.timeout.connect(_try_attack)
 	production_timer.timeout.connect(_try_produce)
+	health_component.died.connect(_on_destroyed)
 	_set_mode(Mode.PRODUCE)
 
 func _process(delta: float) -> void:
@@ -68,7 +78,7 @@ func _process(delta: float) -> void:
 
 # ========== 模式切换 ==========
 func cycle_mode() -> void:
-	if is_cooling or is_overclocked or is_locked:
+	if is_cooling or is_overclocked or is_locked or is_destroyed:
 		return
 	var next := _next_avilable_mode(power_model)
 	if next != power_model:
@@ -161,7 +171,7 @@ func _tower_at(pos:Vector2) -> TowerBase:
 # ========== 供能方选中 ==========
 ## 右键点击本塔：有选中供能方→本塔作为链接目标；否则自己是供能方→断开；否则选中/取消
 func _on_right_click() -> void:
-	if is_cooling:
+	if is_cooling or is_destroyed:
 		return
 	var supplier := _find_supplier()
 	if supplier != null and supplier != self:
@@ -208,7 +218,7 @@ func _draw() -> void:
 
 ## 尝试建立 supplier → target 链接（通用规则；供给量/超频由子类覆写决定）
 func _try_link(supplier: TowerBase, target: TowerBase) -> void:
-	if supplier == target:
+	if supplier == target or supplier.is_destroyed or target.is_destroyed:
 		return
 	if supplier.is_cooling or target.is_cooling:
 		return
@@ -307,7 +317,7 @@ func set_charging(level: int, _visited: Array = []) -> void:
 
 ## 攻击定时器触发：按充能层数增幅同时攻击多个敌人
 func _try_attack() -> void:
-	if is_cooling or is_overclocked:
+	if is_cooling or is_overclocked or is_destroyed:
 		return
 	var mult := _damage_mult()
 	for target in _acquire_targets(_laser_count()):
@@ -352,12 +362,29 @@ func _enemy_progress(e: Node2D) -> float:
 func _fire(target: Node2D, mult: float) -> void:
 	push_error("_fire 未实现：子类需覆写")
 
+# ========== 耐久（生命/护盾） ==========
+## 敌人攻击塔的入口：先扣护盾，护盾吸收不了的部分扣血
+func take_damage(amount: int) -> void:
+	if is_destroyed:
+		return
+	var overflow := shield_component.take_damage(amount)
+	if overflow > 0:
+		health_component.take_damage(overflow)
+
+## 生命归零：进入损坏状态，停止一切工作
+func _on_destroyed() -> void:
+	is_destroyed = true
+	attack_timer.stop()
+	production_timer.stop()
+	if body_node != null:
+		body_node.set_deferred("collision_layer", 0)   # 移除阻挡，敌人可继续前进
+	if visual:
+		visual.set_destroyed()   # 损坏外观（变灰）
 
 # ========== 生产（先只做数值，不接 UI） ==========
-
 ## 生产定时器触发：产出光能（数值存 light_energy）
 func _try_produce() -> void:
-	if is_cooling or is_overclocked:
+	if is_cooling or is_overclocked or is_destroyed:
 		return
 	light_energy += _production_amount()
 

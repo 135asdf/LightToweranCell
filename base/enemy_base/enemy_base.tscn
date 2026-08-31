@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://8onpi5hgh6p4"]
+[gd_scene format=3 uid="uid://b2sjjp2l70eos"]
 
 [ext_resource type="Script" uid="uid://dbhbd5onp85iq" path="res://base/enemy_base/monster_base.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://bt6rv1488wfnm" path="res://base/components/health_component.gd" id="2_health"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://y5c5j0gesmp8" path="res://base/enemy_base/components/contact_damage_component.gd" id="5_contact"]
 [ext_resource type="Script" uid="uid://00ia8teecvlb" path="res://base/components/status_effect_component.gd" id="6_status"]
 [ext_resource type="Script" uid="uid://cavyo8whsoun0" path="res://base/enemy_base/components/reward_component.gd" id="7_reward"]
-[ext_resource type="Script" uid="uid://btcna22v0mheq" path="res://base/enemy_base/components/health_view_component.gd" id="8_view"]
+[ext_resource type="Script" uid="uid://btcna22v0mheq" path="res://base/components/health_view_component.gd" id="8_view"]
+[ext_resource type="Script" path="res://base/enemy_base/components/enemy_attack_component.gd" id="9_attack"]
 
 [sub_resource type="CircleShape2D" id="circle_20"]
 radius = 20.0
@@ -27,7 +28,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=2128021766]
-collision_mask = 0
+collision_layer = 1
+collision_mask = 32
 script = ExtResource("1_base")
 
 [node name="Visual" type="Node2D" parent="." unique_id=145948230]
@@ -36,31 +38,6 @@ script = ExtResource("1_base")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1590687671]
 shape = SubResource("circle_20")
-
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1016185214]
-unique_name_in_owner = true
-offset_left = -22.0
-offset_top = -32.0
-offset_right = 22.0
-offset_bottom = -24.0
-theme_override_styles/background = SubResource("hp_bg")
-theme_override_styles/fill = SubResource("hp_fill")
-value = 100.0
-show_percentage = false
-
-[node name="HealthNumber" type="Label" parent="." unique_id=2088841565]
-unique_name_in_owner = true
-offset_left = -30.0
-offset_top = -46.0
-offset_right = 30.0
-offset_bottom = -34.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 12
-text = "100/100"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1649092178]
 unique_name_in_owner = true
@@ -86,6 +63,10 @@ script = ExtResource("6_status")
 unique_name_in_owner = true
 script = ExtResource("7_reward")
 
-[node name="HealthViewComponent" type="Node" parent="." unique_id=634789117]
+[node name="HealthViewComponent" type="Node2D" parent="." unique_id=634789117]
 unique_name_in_owner = true
 script = ExtResource("8_view")
+
+[node name="EnemyAttackComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_attack")
