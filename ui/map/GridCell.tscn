@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cs43xl1ehwwjq"]
+
+[ext_resource type="Script" uid="uid://ceom1meqovppj" path="res://scripts/ui/map/grid_cell.gd" id="1_ep6vo"]
+[ext_resource type="Texture2D" uid="uid://dkt7kb654kain" path="res://Textures/map/slot/slot.png" id="2_q57ra"]
+
+[node name="GridCell" type="Node2D" unique_id=1606837789]
+script = ExtResource("1_ep6vo")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1841984008]
+texture = ExtResource("2_q57ra")
+
+[node name="Border" type="Line2D" parent="." unique_id=1210575582]
+z_index = 1
+points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+closed = true
+width = 1.0
+default_color = Color(0, 0, 0, 0.13725491)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=534073369]

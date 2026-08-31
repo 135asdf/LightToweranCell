@@ -1,24 +1,19 @@
-[gd_resource type="Resource" script_class="LevelData" format=3]
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://5jjunqeb780l"]
 
-[ext_resource type="Script" path="res://base/level_base/resources/level_data.gd" id="1_level"]
-[ext_resource type="Script" path="res://base/level_base/resources/grid_config.gd" id="2_grid"]
-[ext_resource type="Script" path="res://base/level_base/resources/wave_data.gd" id="3_wave"]
-[ext_resource type="Resource" path="res://data/waves/level_01_wave_01.tres" id="4_wave_res"]
+[ext_resource type="Script" uid="uid://b32jn2r0coi8s" path="res://base/level_base/resources/level_data.gd" id="1_level"]
+[ext_resource type="Script" uid="uid://b3b8k7nx7mn2k" path="res://base/level_base/resources/grid_config.gd" id="2_grid"]
+[ext_resource type="Script" uid="uid://bj30kb4fp5iho" path="res://base/level_base/resources/wave_data.gd" id="3_wave"]
+[ext_resource type="Resource" uid="uid://bh2aj71vvj7rj" path="res://data/waves/level_01_wave_01.tres" id="4_wave_res"]
 
 [sub_resource type="Resource" id="grid"]
 script = ExtResource("2_grid")
-columns = 19
-rows = 11
-spacing = 64.0
-origin = Vector2(640, 360)
-blocked_cells = Array[Vector2i]([Vector2i(9, 5)])
+columns = 40
+rows = 20
+spacing = 32.0
 
 [resource]
 script = ExtResource("1_level")
-level_id = &"level_01"
 display_name = "第 1 关"
-crystal_max_health = 100
-starting_energy = 100
 grid_config = SubResource("grid")
 allowed_tower_ids = Array[StringName]([&"plasma_cell", &"light_tower"])
 waves = Array[ExtResource("3_wave")]([ExtResource("4_wave_res")])
