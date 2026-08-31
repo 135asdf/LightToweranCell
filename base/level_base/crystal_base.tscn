@@ -1,21 +1,25 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bwwcw4eng3uog"]
 
-[ext_resource type="Script" path="res://base/level_base/crystal_controller.gd" id="1_controller"]
-[ext_resource type="Script" path="res://base/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" uid="uid://mo5iaoxjrpo0" path="res://base/level_base/crystal_controller.gd" id="1_controller"]
+[ext_resource type="Script" uid="uid://bt6rv1488wfnm" path="res://base/components/health_component.gd" id="2_health"]
+[ext_resource type="Texture2D" uid="uid://biap2lfp8s5y" path="res://Textures/map/crystal/crystal.png" id="2_qip32"]
 
-[sub_resource type="CircleShape2D" id="circle_20"]
-radius = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcr8w"]
+size = Vector2(39.597984, 39.597984)
 
-[node name="CrystalBase" type="Area2D"]
+[node name="CrystalBase" type="Area2D" unique_id=1699911011]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("1_controller")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=359004175]
+texture = ExtResource("2_qip32")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("circle_20")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062666564]
+position = Vector2(0.5000005, 0.5000005)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_pcr8w")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." unique_id=248109829]
 unique_name_in_owner = true
 script = ExtResource("2_health")

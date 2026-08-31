@@ -21,6 +21,8 @@ func _ready() -> void:
 		return
 	build_grid.configure(level_data.grid_config)
 	crystal.configure(level_data.crystal_max_health)
+	var crystal_cell: Vector2i = level_data.grid_config.blocked_cells[0]
+	crystal.global_position = build_grid.cell_to_world(crystal_cell)
 	economy.configure(level_data.starting_energy)
 	placement.configure(tower_catalog, level_data.allowed_tower_ids, build_grid, economy, towers)
 	spawner.configure(level_data.waves, enemies, crystal, _collect_spawn_points())

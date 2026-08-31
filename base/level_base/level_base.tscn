@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btvv6if7fc88" path="res://base/level_base/level_controller.gd" id="1_controller"]
 [ext_resource type="Script" uid="uid://fa1ny1invmck" path="res://base/level_base/components/build_grid_component.gd" id="2_grid"]
-[ext_resource type="PackedScene" path="res://base/level_base/crystal_base.tscn" id="3_crystal"]
+[ext_resource type="PackedScene" uid="uid://bwwcw4eng3uog" path="res://base/level_base/crystal_base.tscn" id="3_crystal"]
 [ext_resource type="PackedScene" uid="uid://cs43xl1ehwwjq" path="res://ui/map/GridCell.tscn" id="3_ysaov"]
 [ext_resource type="Script" uid="uid://bwli5e3f4g5ds" path="res://base/level_base/components/economy_component.gd" id="4_economy"]
 [ext_resource type="Script" uid="uid://cmbkj7s8smjod" path="res://base/level_base/components/wave_spawner_component.gd" id="5_spawner"]
